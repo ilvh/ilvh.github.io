@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.lvhuan.me","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"algolia":{"appID":"TO3UXYR5CO","apiKey":"e1a6d7ac36b54432e92f00c797bc36ee","indexName":"blog","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+<meta name="description" content="前言：最近瞎逛的时候看到HEXO，之前的博客用的GHOST。不过GHOST需要服务器，感觉还是HEXO比较简便，所以就瞎折腾了下。虽然同为NODE平台下的博客框架，不过确实HEXO比较简单，想当初GHOST折腾了我好几天。不过主要也是因为HEXO搭了GitHub Pages这趟便车，不需要去折腾服务器。下面附上搭建过程，以下过程基于windows平台，站点发布于GitHub Pages。有相关问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXO折腾记">
+<meta property="og:url" content="http://www.lvhuan.me/2017/06/22/HEXO%E6%8A%98%E8%85%BE%E8%AE%B0/index.html">
+<meta property="og:site_name" content="吕焕的博客">
+<meta property="og:description" content="前言：最近瞎逛的时候看到HEXO，之前的博客用的GHOST。不过GHOST需要服务器，感觉还是HEXO比较简便，所以就瞎折腾了下。虽然同为NODE平台下的博客框架，不过确实HEXO比较简单，想当初GHOST折腾了我好几天。不过主要也是因为HEXO搭了GitHub Pages这趟便车，不需要去折腾服务器。下面附上搭建过程，以下过程基于windows平台，站点发布于GitHub Pages。有相关问">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-06-22T15:14:45.000Z">
+<meta property="article:modified_time" content="2021-11-29T03:39:25.600Z">
+<meta property="article:author" content="吕焕">
+<meta property="article:tag" content="HEXO">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.lvhuan.me/2017/06/22/HEXO%E6%8A%98%E8%85%BE%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.lvhuan.me/2017/06/22/HEXO%E6%8A%98%E8%85%BE%E8%AE%B0/","path":"2017/06/22/HEXO折腾记/","title":"HEXO折腾记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>HEXO折腾记 | 吕焕的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">吕焕的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">博客搭建过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E6%9C%AC%E5%9C%B0%E4%B8%8A%E4%BC%A0%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">方案一：本地上传静态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E5%B0%86%E6%89%80%E6%9C%89%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0GitHub%EF%BC%8C%E7%84%B6%E5%90%8E%E9%80%9A%E8%BF%87travis-ci%E6%89%A7%E8%A1%8C%E7%BC%96%E8%AF%91%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%EF%BC%8C%E7%84%B6%E5%90%8E%E5%8F%91%E5%B8%83%E5%88%B0GitHub-Pages%E4%BB%A3%E7%A0%81%E5%BA%93"><span class="nav-number">1.1.2.</span> <span class="nav-text">方案二：将所有的博客源文件上传到GitHub，然后通过travis-ci执行编译静态文件，然后发布到GitHub Pages代码库</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="吕焕"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">吕焕</p>
+  <div class="site-description" itemprop="description">诸法所生 唯心所现</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.lvhuan.me/2017/06/22/HEXO%E6%8A%98%E8%85%BE%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="吕焕">
+      <meta itemprop="description" content="诸法所生 唯心所现">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吕焕的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HEXO折腾记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-06-22 23:14:45" itemprop="dateCreated datePublished" datetime="2017-06-22T23:14:45+08:00">2017-06-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-29 11:39:25" itemprop="dateModified" datetime="2021-11-29T11:39:25+08:00">2021-11-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" itemprop="url" rel="index"><span itemprop="name">技术文章</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/HEXO/" itemprop="url" rel="index"><span itemprop="name">HEXO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>前言：最近瞎逛的时候看到HEXO，之前的博客用的GHOST。不过GHOST需要服务器，感觉还是HEXO比较简便，所以就瞎折腾了下。虽然同为NODE平台下的博客框架，不过确实HEXO比较简单，想当初GHOST折腾了我好几天。不过主要也是因为HEXO搭了GitHub Pages这趟便车，不需要去折腾服务器。下面附上搭建过程，以下过程基于windows平台，站点发布于GitHub Pages。有相关问题可以访问<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">HEXO官网</a>,里面又中文版教程，并且过程特别清晰</p>
+</blockquote>
+<h1 id="博客搭建过程"><a href="#博客搭建过程" class="headerlink" title="博客搭建过程"></a>博客搭建过程</h1><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><ol>
+<li>Hexo是一款基于Node.js的静态博客框架,所以NODE.js当然是必装的，到Node.js官网下载相应平台的最新版本，一路安装即可。</li>
+<li>Git也是必须，要将相关代码上传到Github。</li>
+</ol>
+<p>接下去新建站点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<p>站点_config.yml配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: https://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"></span><br><span class="line"># Site</span><br><span class="line">title: 吕焕的博客</span><br><span class="line">subtitle:</span><br><span class="line">description: 诸法所生 唯心所现</span><br><span class="line">author: 吕焕</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone:</span><br><span class="line">#NEXT主题的头像地址</span><br><span class="line">avatar: images/avatar.png</span><br><span class="line">#NEXT主题，多说评论系统配置项</span><br><span class="line">duoshuo_shortname: lvhuan</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span><br><span class="line">url: http://www.hexo.lvhuan.me</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">  enable: true</span><br><span class="line">  line_number: true</span><br><span class="line">  auto_detect: false</span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: </span><br><span class="line">  repo: </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>主题替换为NEXT，<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NEXT官网</a>中有详细的教程。</p>
+<p>其实就是把NEXT的代码下过来，放在站点目录中的themes文件夹下的next文件夹中，然后将站点_config.yml中的theme改为next。</p>
+<p>NEXT可以集成很多第三方的插件，比如多说评论、百度统计以及阅读量统计等，具体设置请参照官方教程。</p>
+<p>然后执行下面的命令后成功后，再浏览器里输入<code>http://localhost:4000/</code>应该就可以看到博客的内容了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>##上传博客到GitHub Pages服务</p>
+<p><em>前提条件：在GitHub服务器中已经建立GitHub Pages所需代码库（GitHub中建立一个仓库，名称为<code>GitHub用户名.github.io</code>）。博客的静态文件上传到这个代码库后，会自动解析，然后在<code>GitHub用户名.github.io</code>这个域名下就能看到你的博客了</em></p>
+<h3 id="方案一：本地上传静态文件"><a href="#方案一：本地上传静态文件" class="headerlink" title="方案一：本地上传静态文件"></a>方案一：本地上传静态文件</h3><p>安装 hexo-deployer-git。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>修改站点_config.yml配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br><span class="line">  branch: [branch]</span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>repo</code></td>
+<td>库（Repository）地址</td>
+</tr>
+<tr>
+<td><code>branch</code></td>
+<td>分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>自定义提交信息 (默认为 Site updated: ‘YYYY-MM-DD HH:mm:ss’)</td>
+</tr>
+</tbody></table>
+<p>然后执行HEXO的发布命令，就能将编译好的静态文件发布到GitHub Pages代码库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy </span><br></pre></td></tr></table></figure>
+
+<p>可以简写成 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-g, --generate</code></td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody></table>
+<h3 id="方案二：将所有的博客源文件上传到GitHub，然后通过travis-ci执行编译静态文件，然后发布到GitHub-Pages代码库"><a href="#方案二：将所有的博客源文件上传到GitHub，然后通过travis-ci执行编译静态文件，然后发布到GitHub-Pages代码库" class="headerlink" title="方案二：将所有的博客源文件上传到GitHub，然后通过travis-ci执行编译静态文件，然后发布到GitHub Pages代码库"></a>方案二：将所有的博客源文件上传到GitHub，然后通过<a target="_blank" rel="noopener" href="https://travis-ci.org/">travis-ci</a>执行编译静态文件，然后发布到GitHub Pages代码库</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HEXO/" rel="tag"># HEXO</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/06/13/MVC%E5%92%8CMVVM%E6%9E%B6%E6%9E%84%E7%90%86%E8%A7%A3%E5%A4%87%E5%BF%98/" rel="prev" title="MVC和MVVM架构理解备忘">
+                  <i class="fa fa-chevron-left"></i> MVC和MVVM架构理解备忘
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/06/13/%E5%9F%9F%E5%90%8D%E5%8F%91%E6%95%A3%E5%92%8C%E5%9F%9F%E5%90%8D%E6%94%B6%E6%95%9B/" rel="next" title="域名发散和域名收敛">
+                  域名发散和域名收敛 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吕焕</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.11.0/dist/algoliasearch-lite.umd.js" integrity="sha256-48AZ24Ct05NAMLT7hvYgeW1X350OgEcZvHd6Ih6xwOA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.33.0/dist/instantsearch.production.min.js" integrity="sha256-4ZQdz/UqmHX2Yk/+jtIRU6ZmN+ElFjKqxqYdbdQskr0=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
